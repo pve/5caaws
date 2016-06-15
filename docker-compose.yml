@@ -1,0 +1,47 @@
+# three containers and a website :-), except, it is more than three containers..
+version: '2'
+services: 
+  logg:
+    image: iamatypeofwalrus/logspout-loggly
+    environment: 
+      LOGGLY_TAGS: "3caaws"
+    env_file: secrets
+    volumes: 
+      - /var/run/docker.sock:/tmp/docker.sock
+    
+  web:
+    image: httpd:2.4
+    volumes: 
+      - ./www:/usr/local/apache2/htdocs:ro
+    ports:
+      - "80:80"
+    
+  sftp:
+    image: atmoz/sftp
+    volumes: 
+      - ./www:/home/foo/
+      - ./users.conf:/etc/sftp-users.conf:ro
+#      - ./publickeys:/etc/.ssh/keys/publickeys:ro
+    ports:
+      - "2222:22"
+
+  restore:
+    image: petersgriddle/docker-backup-to-s3
+    environment:
+      S3_PATH: "s3://www.vaneijk.net/" 
+    env_file: secrets
+    command: get
+    volumes: 
+      - ./www:/data
+    depends_on: 
+      - logg
+
+  backup:
+    image: istepanov/backup-to-s3
+    environment:
+      CRON_SCHEDULE:
+      S3_PATH: "s3://www.vaneijk.net/" 
+    env_file: secrets
+    volumes: 
+      - ./www:/data:ro
+
