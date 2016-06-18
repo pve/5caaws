@@ -19,7 +19,7 @@ services:
   sftp:
     image: atmoz/sftp
     volumes: 
-      - ./www:/home/foo/
+      - ./www:/home/gerard/www
       - ./users.conf:/etc/sftp-users.conf:ro
 #      - ./publickeys:/etc/.ssh/keys/publickeys:ro
     ports:

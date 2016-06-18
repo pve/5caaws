@@ -1,7 +1,7 @@
 secrets
 users.conf
 publickeys
-www*/
+www*/*
 
 # Compiled source #
 ###################
