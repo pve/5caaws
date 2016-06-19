@@ -4,7 +4,7 @@ services:
   logg:
     image: iamatypeofwalrus/logspout-loggly
     environment: 
-      LOGGLY_TAGS: "3caaws"
+      LOGGLY_TAGS: "5caaws"
     env_file: secrets
     volumes: 
       - /var/run/docker.sock:/tmp/docker.sock
@@ -21,7 +21,6 @@ services:
     volumes: 
       - ./www:/home/gerard/www
       - ./users.conf:/etc/sftp-users.conf:ro
-#      - ./publickeys:/etc/.ssh/keys/publickeys:ro
     ports:
       - "2222:22"
 
@@ -37,7 +36,7 @@ services:
       - logg
 
   backup:
-    image: istepanov/backup-to-s3
+    image: petersgriddle/docker-backup-to-s3
     environment:
       CRON_SCHEDULE:
       S3_PATH: "s3://www.vaneijk.net/" 
