@@ -3,6 +3,7 @@ version: '2'
 services: 
   logg:
     image: iamatypeofwalrus/logspout-loggly
+    restart: always
     environment: 
       LOGGLY_TAGS: "5caaws"
     env_file: secrets
