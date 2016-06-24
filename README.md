@@ -1,11 +1,11 @@
 # 5caaws
 ## Five containers and a website
 
-This restores a static website into Apache. A few risk management controls are implemented.
+This restores a static website into Apache. A few risk management controls are implemented: backup/restore on AWS S3, logging on loggly.com 
 
 Getting this going on e.g. Digital Ocean requires the following steps:
 
-1. starting a machine with the docker daemon
+1. starting a machine with the Docker daemon
 2. installing docker-compose: https://docs.docker.com/compose/install/
 3. git clone https://github.com/pve/5caaws.git
 4. restore the secrets from your stash
