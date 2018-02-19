@@ -5,8 +5,8 @@ This restores a static website into Apache. A few risk management controls are i
 
 Getting this going on e.g. Digital Ocean requires the following steps:
 
-1. starting a machine with the Docker daemon (on Digital Ocean, take one of the one-click apps)
-2. installing docker-compose: https://docs.docker.com/compose/install/ (you need a version 1.6 or better)
+1. starting a machine with the Docker daemon (on Digital Ocean, take one of the one-click apps that has Docker)
+2. installing docker-compose: https://docs.docker.com/compose/install/ (you need a version 1.6 or better), if needed
 3. git clone https://github.com/pve/5caaws.git
 4. restore the secrets from your stash into the .dist files
 5. run docker-compose up
