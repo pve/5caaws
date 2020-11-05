@@ -1,7 +1,8 @@
 # 5caaws
 ## Five containers and a website
 
-This restores a static website into Apache. A few risk management controls are implemented: backup/restore on AWS S3, logging on loggly.com 
+This restores a static website into Apache. A few risk management controls are implemented: backup/restore on AWS S3, logging on loggly.com.
+https://www.youtube.com/watch?v=eNxd7qoc8cA
 
 Getting this going on e.g. Digital Ocean requires the following steps:
 
